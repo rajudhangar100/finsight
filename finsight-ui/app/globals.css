@@ -1,26 +1,28 @@
 :root {
-  --bg: #0b0f14;
-  --panel: #121823;
-  --accent: #4ade80;
+  --bg1: #0f172a;
+  --bg2: #020617;
+  --card: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.18);
+  --accent: #34d399;
+  --accent2: #38bdf8;
   --text: #e5e7eb;
-  --muted: #9ca3af;
-}
-
-* {
-  box-sizing: border-box;
+  --muted: #94a3b8;
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #111827, #020617);
+  height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, #1e293b, transparent 60%),
+    radial-gradient(circle at 80% 80%, #020617, transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
   color: var(--text);
   font-family: Inter, system-ui, sans-serif;
 }
 
-input, textarea {
+textarea, input {
+  color: var(--text);
   background: transparent;
   border: none;
   outline: none;
-  color: var(--text);
-  font-size: 1rem;
 }

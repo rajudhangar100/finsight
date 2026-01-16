@@ -1,39 +1,34 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function AnswerPanel({ response, loading }) {
+export default function AnswerPanel({ data, loading }) {
   if (loading) {
     return (
       <motion.div
         animate={{ opacity: [0.4, 1, 0.4] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
+        transition={{ repeat: Infinity, duration: 1.2 }}
         style={{ color: "var(--muted)" }}
       >
-        Interpreting legal context...
+        Interpreting legal framework…
       </motion.div>
     );
   }
 
-  if (!response) return null;
+  if (!data) return null;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       style={{
-        background: "linear-gradient(180deg, #111827, #020617)",
-        border: "1px solid #1f2937",
-        padding: "24px",
-        borderRadius: "14px"
+        background: "var(--card)",
+        border: "1px solid var(--border)",
+        padding: "28px",
+        borderRadius: "18px"
       }}
     >
-      <p style={{ lineHeight: 1.6 }}>{response.answer}</p>
-
-      {response.sources && (
-        <div style={{ marginTop: "14px", color: "var(--muted)", fontSize: "0.85rem" }}>
-          Sources: {response.sources.join(", ")}
-        </div>
-      )}
+      <h3 style={{ color: "var(--accent2)" }}>Legal Interpretation</h3>
+      <p style={{ lineHeight: 1.7 }}>{data.answer}</p>
     </motion.div>
   );
 }
